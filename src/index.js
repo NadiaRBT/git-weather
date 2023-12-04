@@ -3,11 +3,25 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Search from "./Search";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <div className="App">
+      <h1>Weather App</h1>
+      <Search />
+      <footer>
+        <a
+          href=""
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          open-source code
+        </a>{" "}
+        by Nadia Russell-Brett
+      </footer>
+    </div>
   </React.StrictMode>
 );
 
