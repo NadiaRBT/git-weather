@@ -1,11 +1,11 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 import Search from "./Search";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <div className="App">
@@ -13,7 +13,7 @@ root.render(
       <Search />
       <footer>
         <a
-          href=""
+          href="https://github.com/NadiaRBT/git-weather"
           target="_blank"
           rel="noopener noreferrer"
         >
