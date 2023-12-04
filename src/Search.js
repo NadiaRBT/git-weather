@@ -1,13 +1,10 @@
 import React, { useState } from "react";
 import axios from "axios";
 
-let apiKey = "2980ff43226d67e53abfcdb6d457dcc8";
-let apiUrl = "https://api.openweathermap.org/data/2.5/weather";
-
 export default function Search() {
-  let [city, setCity] = useState("");
-  let [loaded, setLoaded] = useState(false);
-  let [weather, setWeather] = useState({});
+  const [city, setCity] = useState("");
+  const [loaded, setLoaded] = useState(false);
+  const [weather, setWeather] = useState({});
 
   function displayWeather(response) {
     setLoaded(true);
@@ -15,15 +12,14 @@ export default function Search() {
       temperature: response.data.main.temp,
       wind: response.data.wind.speed,
       humidity: response.data.main.humidity,
-      icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
-      description: response.data.weather[0].description,
+      icon: `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
+      description: response.data.weather[0].discription,
     });
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    let apiKey = "2980ff43226d67e53abfcdb6d457dcc8";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=ca0db41e2e878c74a1dfc7ffece370d4&units=metric`;
     axios.get(apiUrl).then(displayWeather);
   }
 
@@ -35,10 +31,10 @@ export default function Search() {
     <form onSubmit={handleSubmit}>
       <input
         type="search"
-        placeholder="Enter a city..."
+        placeholder="Enter your city..."
         onChange={updateCity}
       />
-      <button type="Submit">Search</button>
+      <input type="submit" value="search" />
     </form>
   );
 
@@ -47,12 +43,12 @@ export default function Search() {
       <div>
         {form}
         <ul>
-          <li>Temperature: {Math.round(weather.temperature)}ºC</li>
-          <li>Description: {weather.description}</li>
-          <li>Humidity: {weather.humidity}%</li>
-          <li>Wind: {weather.wind}km/h</li>
+          <li>temperature: {Math.round(weather.temperature)}℃</li>
+          <li>description: {weather.description}</li>
+          <li>humidity: {weather.humidity}%</li>
+          <li>wind: {weather.wind} km/h</li>
           <li>
-            <img src={weather.icon} alt="Weather Icon" />
+            <img src={weather.icon} alt={weather.description} />
           </li>
         </ul>
       </div>

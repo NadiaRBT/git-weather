@@ -2,3 +2,13 @@
   font-family: sans-serif;
   text-align: center;
 }
+
+input {
+  font-size: 15px;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+ul {
+  list-style: none;
+  line-height: 2;
+}
